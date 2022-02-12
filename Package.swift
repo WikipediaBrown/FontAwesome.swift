@@ -4,6 +4,11 @@ import PackageDescription
 
 let package = Package(
     name: "FontAwesome",
+    platforms: [
+        .iOS(.v9),         //.v8 - .v13
+        .macOS(.v10_10),    //.v10_10 - .v10_15
+        .tvOS(.v9),        //.v9 - .v13
+    ],
     products: [
         .library(name: "FontAwesome", targets: ["FontAwesome"]),
         .executable(name: "tools", targets: ["tools"])
@@ -16,7 +21,7 @@ let package = Package(
                 .process("Resources/Fonts"),
             ]
         ),
-        .target(
+        .executableTarget(
             name: "tools"
         )
     ]
